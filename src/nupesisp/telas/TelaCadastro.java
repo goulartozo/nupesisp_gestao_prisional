@@ -2153,7 +2153,13 @@ public final class TelaCadastro extends JFrame {
             boolean orientacaoSexualOutra = jcbOutraOrientacao.isSelected();
             String orientacaoSexualOutraTexto = jtfOutraOrientacaoSexual.getText();
             boolean orientacaoSexualNaoInformar = jcbNDOrientacao.isSelected();
-        process.adicionarPreso(responsavelAtendimento, dataAtendimentovar, transferenciaUnidade, procedencia,
+        
+         try {
+        if (jtfCpf.getText().trim().isEmpty()) {
+            throw new IllegalArgumentException("Por favor, preencha o campo CPF obrigatório.");
+        }
+            
+            process.adicionarPreso(responsavelAtendimento, dataAtendimentovar, transferenciaUnidade, procedencia,
         nomeCompleto, nomeSocial, dataNascimento, idade, cpf, nacionalidadeBrasileiro, nacionalidadeNaturalizado,
         nacionalidadeEstrangeiro, pais, nomeMae, estadoCivilSolteiro, estadoCivilCasado, estadoCivilUniaoEstavel, 
         estadoCivilOutro, estadoCivilOutroTexto, racaBranco, racaPreto, racaPardo, racaAmarelo, racaIndigena,
@@ -2164,6 +2170,14 @@ public final class TelaCadastro extends JFrame {
         
         desbloquearComponentes(mainPanel);
         
+            } catch (IllegalArgumentException ex) {
+           // Mostra a mensagem amigável em vez de "erro em tela"
+           JOptionPane.showMessageDialog(null, ex.getMessage(), "Campo obrigatório", JOptionPane.WARNING_MESSAGE);
+       } catch (Exception ex) {
+           // Captura qualquer outro erro que não seja apenas campo vazio
+           JOptionPane.showMessageDialog(null, "Erro ao processar os dados:\n" + ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+           ex.printStackTrace(); // Para depuração no console
+       }
     }
     
     
