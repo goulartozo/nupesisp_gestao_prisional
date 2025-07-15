@@ -1,0 +1,326 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Tempo de geração: 15/07/2025 às 03:16
+-- Versão do servidor: 10.4.32-MariaDB
+-- Versão do PHP: 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Banco de dados: `presidio_db`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `pacientes_atendimentos`
+--
+
+CREATE TABLE `pacientes_atendimentos` (
+  `id` int(11) NOT NULL,
+  `responsavel_atendimento` varchar(255) DEFAULT NULL,
+  `data_atendimento` varchar(255) DEFAULT NULL,
+  `transferencia_unidade` tinyint(1) DEFAULT NULL,
+  `procedencia` varchar(255) DEFAULT NULL,
+  `nome_completo` varchar(255) DEFAULT NULL,
+  `nome_social` varchar(255) DEFAULT NULL,
+  `data_nascimento` varchar(255) DEFAULT NULL,
+  `idade` varchar(50) DEFAULT NULL,
+  `cpf` varchar(20) DEFAULT NULL,
+  `nacionalidade_brasileiro` tinyint(1) DEFAULT NULL,
+  `nacionalidade_naturalizado` tinyint(1) DEFAULT NULL,
+  `nacionalidade_estrangeiro` tinyint(1) DEFAULT NULL,
+  `pais` varchar(100) DEFAULT NULL,
+  `nome_mae` varchar(255) DEFAULT NULL,
+  `estado_civil_solteiro` tinyint(1) DEFAULT NULL,
+  `estado_civil_casado` tinyint(1) DEFAULT NULL,
+  `estado_civil_uniao_estavel` tinyint(1) DEFAULT NULL,
+  `estado_civil_outro` tinyint(1) DEFAULT NULL,
+  `estado_civil_outro_texto` varchar(255) DEFAULT NULL,
+  `raca_branco` tinyint(1) DEFAULT NULL,
+  `raca_preto` tinyint(1) DEFAULT NULL,
+  `raca_pardo` tinyint(1) DEFAULT NULL,
+  `raca_amarelo` tinyint(1) DEFAULT NULL,
+  `raca_indigena` tinyint(1) DEFAULT NULL,
+  `etnia` varchar(255) DEFAULT NULL,
+  `sexo_feminino` tinyint(1) DEFAULT NULL,
+  `sexo_masculino` tinyint(1) DEFAULT NULL,
+  `sexo_intersexual` tinyint(1) DEFAULT NULL,
+  `sexo_nao_informar` tinyint(1) DEFAULT NULL,
+  `identidade_genero_homem` tinyint(1) DEFAULT NULL,
+  `identidade_genero_mulher` tinyint(1) DEFAULT NULL,
+  `identidade_genero_homem_trans` tinyint(1) DEFAULT NULL,
+  `identidade_genero_mulher_trans` tinyint(1) DEFAULT NULL,
+  `identidade_genero_nao_binario` tinyint(1) DEFAULT NULL,
+  `identidade_genero_nao_informar` tinyint(1) DEFAULT NULL,
+  `orientacao_sexual_hetero` tinyint(1) DEFAULT NULL,
+  `orientacao_sexual_homo` tinyint(1) DEFAULT NULL,
+  `orientacao_sexual_bi` tinyint(1) DEFAULT NULL,
+  `orientacao_sexual_outra` tinyint(1) DEFAULT NULL,
+  `orientacao_sexual_outra_texto` varchar(255) DEFAULT NULL,
+  `orientacao_sexual_nao_informar` tinyint(1) DEFAULT NULL,
+  `escolaridade_fundamental_inc` tinyint(1) DEFAULT NULL,
+  `escolaridade_fundamental_comp` tinyint(1) DEFAULT NULL,
+  `escolaridade_medio_inc` tinyint(1) DEFAULT NULL,
+  `escolaridade_medio_comp` tinyint(1) DEFAULT NULL,
+  `escolaridade_superior_inc` tinyint(1) DEFAULT NULL,
+  `escolaridade_superior_comp` tinyint(1) DEFAULT NULL,
+  `beneficio_nao` tinyint(1) DEFAULT NULL,
+  `beneficio_sim` tinyint(1) DEFAULT NULL,
+  `qual_beneficio` varchar(255) DEFAULT NULL,
+  `possui_filhos_nao` tinyint(1) DEFAULT NULL,
+  `possui_filhos_sim` tinyint(1) DEFAULT NULL,
+  `quantos_filhos` varchar(50) DEFAULT NULL,
+  `outros_dependentes_nao` tinyint(1) DEFAULT NULL,
+  `outros_dependentes_sim` tinyint(1) DEFAULT NULL,
+  `quantos_dependentes` varchar(50) DEFAULT NULL,
+  `idade_social` varchar(50) DEFAULT NULL,
+  `encaminhamento_neeja` tinyint(1) DEFAULT NULL,
+  `assist_social` tinyint(1) DEFAULT NULL,
+  `deficiencia_nao` tinyint(1) DEFAULT NULL,
+  `deficiencia_sim` tinyint(1) DEFAULT NULL,
+  `qual_deficiencia` varchar(255) DEFAULT NULL,
+  `deficiencia_nao_sabe` tinyint(1) DEFAULT NULL,
+  `alergias_nao` tinyint(1) DEFAULT NULL,
+  `alergias_sim` tinyint(1) DEFAULT NULL,
+  `quais_alergias` varchar(255) DEFAULT NULL,
+  `alergias_nao_sabe` tinyint(1) DEFAULT NULL,
+  `cirurgias_nao` tinyint(1) DEFAULT NULL,
+  `cirurgias_sim` tinyint(1) DEFAULT NULL,
+  `quais_cirurgias` varchar(255) DEFAULT NULL,
+  `cirurgias_nao_sabe` tinyint(1) DEFAULT NULL,
+  `hipertensao` tinyint(1) DEFAULT NULL,
+  `diabetes` tinyint(1) DEFAULT NULL,
+  `hiv_historico` tinyint(1) DEFAULT NULL,
+  `sifilis_historico` tinyint(1) DEFAULT NULL,
+  `hpv` tinyint(1) DEFAULT NULL,
+  `tuberculose` tinyint(1) DEFAULT NULL,
+  `doenca_pele_nao` tinyint(1) DEFAULT NULL,
+  `doenca_pele_sim` tinyint(1) DEFAULT NULL,
+  `qual_doenca_pele` varchar(255) DEFAULT NULL,
+  `autoimune_nao` tinyint(1) DEFAULT NULL,
+  `autoimune_sim` tinyint(1) DEFAULT NULL,
+  `outra_autoimune` varchar(255) DEFAULT NULL,
+  `autoimune_nao_sabe` tinyint(1) DEFAULT NULL,
+  `obs_autoimune` text DEFAULT NULL,
+  `obs_hepatite` text DEFAULT NULL,
+  `medicamento_continuo_nao` tinyint(1) DEFAULT NULL,
+  `medicamento_continuo_sim` tinyint(1) DEFAULT NULL,
+  `quais_medicamentos` text DEFAULT NULL,
+  `contato_enchente_nao` tinyint(1) DEFAULT NULL,
+  `contato_enchente_sim` tinyint(1) DEFAULT NULL,
+  `ano_enchente` varchar(10) DEFAULT NULL,
+  `descrever_exposicao` text DEFAULT NULL,
+  `tipo_sanguineo_a_pos` tinyint(1) DEFAULT NULL,
+  `tipo_sanguineo_a_neg` tinyint(1) DEFAULT NULL,
+  `tipo_sanguineo_b_pos` tinyint(1) DEFAULT NULL,
+  `tipo_sanguineo_b_neg` tinyint(1) DEFAULT NULL,
+  `tipo_sanguineo_o_pos` tinyint(1) DEFAULT NULL,
+  `tipo_sanguineo_o_neg` tinyint(1) DEFAULT NULL,
+  `tipo_sanguineo_ab_pos` tinyint(1) DEFAULT NULL,
+  `tipo_sanguineo_ab_neg` tinyint(1) DEFAULT NULL,
+  `tipo_sanguineo_nao_sabe` tinyint(1) DEFAULT NULL,
+  `encaminhamento_sangue` varchar(255) DEFAULT NULL,
+  `gestacao_nao_sabe` tinyint(1) DEFAULT NULL,
+  `gestacao_nao` tinyint(1) DEFAULT NULL,
+  `gestacao_sim` tinyint(1) DEFAULT NULL,
+  `idade_gestacional` varchar(50) DEFAULT NULL,
+  `contraceptivo_nao` tinyint(1) DEFAULT NULL,
+  `anticoncepcional_oral` tinyint(1) DEFAULT NULL,
+  `diu_implante` tinyint(1) DEFAULT NULL,
+  `anticoncepcional_injetavel` tinyint(1) DEFAULT NULL,
+  `ligadura_trompas` tinyint(1) DEFAULT NULL,
+  `histerectomia` tinyint(1) DEFAULT NULL,
+  `preventivo_nao` tinyint(1) DEFAULT NULL,
+  `preventivo_sim` tinyint(1) DEFAULT NULL,
+  `ano_preventivo` varchar(10) DEFAULT NULL,
+  `ofertar_continuidade_contraceptivo` tinyint(1) DEFAULT NULL,
+  `ofertar_consulta_preventivo` tinyint(1) DEFAULT NULL,
+  `encaminhar_pre_natal_mulher` tinyint(1) DEFAULT NULL,
+  `exame_prostata_nao` tinyint(1) DEFAULT NULL,
+  `exame_prostata_sim` tinyint(1) DEFAULT NULL,
+  `ano_prostata` varchar(10) DEFAULT NULL,
+  `historico_prostata_nao` tinyint(1) DEFAULT NULL,
+  `historico_prostata_sim` tinyint(1) DEFAULT NULL,
+  `familiar_prostata` varchar(255) DEFAULT NULL,
+  `vasectomia_nao` tinyint(1) DEFAULT NULL,
+  `vasectomia_sim` tinyint(1) DEFAULT NULL,
+  `parceira_gestante_nao` tinyint(1) DEFAULT NULL,
+  `parceira_gestante_sim` tinyint(1) DEFAULT NULL,
+  `participando_pre_natal_nao` tinyint(1) DEFAULT NULL,
+  `participando_pre_natal_sim` tinyint(1) DEFAULT NULL,
+  `ofertar_vasectomia` tinyint(1) DEFAULT NULL,
+  `encaminhar_pre_natal_parceiro` tinyint(1) DEFAULT NULL,
+  `caps_nao` tinyint(1) DEFAULT NULL,
+  `caps_sim` tinyint(1) DEFAULT NULL,
+  `nome_municipio_caps` varchar(255) DEFAULT NULL,
+  `ansiedade_nao` tinyint(1) DEFAULT NULL,
+  `ansiedade_sim` tinyint(1) DEFAULT NULL,
+  `depressao_nao` tinyint(1) DEFAULT NULL,
+  `depressao_sim` tinyint(1) DEFAULT NULL,
+  `bipolaridade_nao` tinyint(1) DEFAULT NULL,
+  `bipolaridade_sim` tinyint(1) DEFAULT NULL,
+  `esquizofrenia_nao` tinyint(1) DEFAULT NULL,
+  `esquizofrenia_sim` tinyint(1) DEFAULT NULL,
+  `autismo_nao` tinyint(1) DEFAULT NULL,
+  `autismo_sim` tinyint(1) DEFAULT NULL,
+  `outro_transtorno` varchar(255) DEFAULT NULL,
+  `transtorno_nao_sabe` tinyint(1) DEFAULT NULL,
+  `medicamento_controlado_nao` tinyint(1) DEFAULT NULL,
+  `medicamento_controlado_sim` tinyint(1) DEFAULT NULL,
+  `qual_medicamento_controlado` varchar(255) DEFAULT NULL,
+  `medicamento_controlado_nao_sabe` tinyint(1) DEFAULT NULL,
+  `acompanhamento_prisao_nao` tinyint(1) DEFAULT NULL,
+  `acompanhamento_prisao_sim` tinyint(1) DEFAULT NULL,
+  `motivo_acompanhamento` varchar(255) DEFAULT NULL,
+  `uso_alcool_nao` tinyint(1) DEFAULT NULL,
+  `uso_alcool_sim` tinyint(1) DEFAULT NULL,
+  `uso_cigarro_nao` tinyint(1) DEFAULT NULL,
+  `uso_cigarro_sim` tinyint(1) DEFAULT NULL,
+  `uso_maconha_nao` tinyint(1) DEFAULT NULL,
+  `uso_maconha_sim` tinyint(1) DEFAULT NULL,
+  `uso_crack_nao` tinyint(1) DEFAULT NULL,
+  `uso_crack_sim` tinyint(1) DEFAULT NULL,
+  `uso_cocaina_nao` tinyint(1) DEFAULT NULL,
+  `uso_cocaina_sim` tinyint(1) DEFAULT NULL,
+  `uso_anfetaminas_nao` tinyint(1) DEFAULT NULL,
+  `uso_anfetaminas_sim` tinyint(1) DEFAULT NULL,
+  `uso_drogas_k_nao` tinyint(1) DEFAULT NULL,
+  `uso_drogas_k_sim` tinyint(1) DEFAULT NULL,
+  `uso_outras_substancias_nao` tinyint(1) DEFAULT NULL,
+  `uso_outras_substancias_sim` tinyint(1) DEFAULT NULL,
+  `outras_substancias` varchar(255) DEFAULT NULL,
+  `tratamento_cessar_nao` tinyint(1) DEFAULT NULL,
+  `tratamento_cessar_sim` tinyint(1) DEFAULT NULL,
+  `substancia_tratamento` varchar(255) DEFAULT NULL,
+  `deseja_tratamento_nao` tinyint(1) DEFAULT NULL,
+  `deseja_tratamento_sim` tinyint(1) DEFAULT NULL,
+  `desejo_substancia` varchar(255) DEFAULT NULL,
+  `ofertar_consulta_psicologia` tinyint(1) DEFAULT NULL,
+  `ofertar_consulta_psiquiatria` tinyint(1) DEFAULT NULL,
+  `encaminhar_renovacao_receitas` tinyint(1) DEFAULT NULL,
+  `ofertar_grupos_apoyo` tinyint(1) DEFAULT NULL,
+  `vacina_covid_nao` tinyint(1) DEFAULT NULL,
+  `vacina_covid_sim` tinyint(1) DEFAULT NULL,
+  `vacina_covid_nao_sabe` tinyint(1) DEFAULT NULL,
+  `vacina_influenza_nao` tinyint(1) DEFAULT NULL,
+  `vacina_influenza_sim` tinyint(1) DEFAULT NULL,
+  `vacina_influenza_nao_sabe` tinyint(1) DEFAULT NULL,
+  `vacina_tetano_nao` tinyint(1) DEFAULT NULL,
+  `vacina_tetano_sim` tinyint(1) DEFAULT NULL,
+  `vacina_tetano_nao_sabe` tinyint(1) DEFAULT NULL,
+  `vacina_hepatite_nao` tinyint(1) DEFAULT NULL,
+  `vacina_hepatite_sim` tinyint(1) DEFAULT NULL,
+  `vacina_hepatite_nao_sabe` tinyint(1) DEFAULT NULL,
+  `peso` varchar(50) DEFAULT NULL,
+  `altura` varchar(50) DEFAULT NULL,
+  `imc` varchar(50) DEFAULT NULL,
+  `pa` varchar(50) DEFAULT NULL,
+  `fc` varchar(50) DEFAULT NULL,
+  `sat` varchar(50) DEFAULT NULL,
+  `temp` varchar(50) DEFAULT NULL,
+  `tosse_sim` tinyint(1) DEFAULT NULL,
+  `tosse_nao` tinyint(1) DEFAULT NULL,
+  `coriza_sim` tinyint(1) DEFAULT NULL,
+  `coriza_nao` tinyint(1) DEFAULT NULL,
+  `espirros_sim` tinyint(1) DEFAULT NULL,
+  `espirros_nao` tinyint(1) DEFAULT NULL,
+  `febre_sim` tinyint(1) DEFAULT NULL,
+  `febre_nao` tinyint(1) DEFAULT NULL,
+  `calafrios_sim` tinyint(1) DEFAULT NULL,
+  `calafrios_nao` tinyint(1) DEFAULT NULL,
+  `outros_sintomas` text DEFAULT NULL,
+  `data_inicio_sintomas` varchar(255) DEFAULT NULL,
+  `apresenta_lesoes_sim` tinyint(1) DEFAULT NULL,
+  `apresenta_lesoes_nao` tinyint(1) DEFAULT NULL,
+  `apresenta_lesoes_locais` text DEFAULT NULL,
+  `apresenta_lesoes_conduta` text DEFAULT NULL,
+  `hiv12_lote` varchar(255) DEFAULT NULL,
+  `hiv12_validade` varchar(255) DEFAULT NULL,
+  `hiv12_r` tinyint(1) DEFAULT NULL,
+  `hiv12_nr` tinyint(1) DEFAULT NULL,
+  `hiv12_nao_realizado` tinyint(1) DEFAULT NULL,
+  `hiv22_lote` varchar(255) DEFAULT NULL,
+  `hiv22_validade` varchar(255) DEFAULT NULL,
+  `hiv22_r` tinyint(1) DEFAULT NULL,
+  `hiv22_nr` tinyint(1) DEFAULT NULL,
+  `hiv22_nao_realizado` tinyint(1) DEFAULT NULL,
+  `sifilis_lote` varchar(255) DEFAULT NULL,
+  `sifilis_validade` varchar(255) DEFAULT NULL,
+  `sifilis_r` tinyint(1) DEFAULT NULL,
+  `sifilis_nr` tinyint(1) DEFAULT NULL,
+  `sifilis_nao_realizado` tinyint(1) DEFAULT NULL,
+  `hepatite_b_lote` varchar(255) DEFAULT NULL,
+  `hepatite_b_validade` varchar(255) DEFAULT NULL,
+  `hepatite_b_r` tinyint(1) DEFAULT NULL,
+  `hepatite_b_nr` tinyint(1) DEFAULT NULL,
+  `hepatite_b_nao_realizado` tinyint(1) DEFAULT NULL,
+  `hepatite_c_lote` varchar(255) DEFAULT NULL,
+  `hepatite_c_validade` varchar(255) DEFAULT NULL,
+  `hepatite_c_r` tinyint(1) DEFAULT NULL,
+  `hepatite_c_nr` tinyint(1) DEFAULT NULL,
+  `hepatite_c_nao_realizado` tinyint(1) DEFAULT NULL,
+  `covid_lote` varchar(255) DEFAULT NULL,
+  `covid_validade` varchar(255) DEFAULT NULL,
+  `covid_r` tinyint(1) DEFAULT NULL,
+  `covid_nr` tinyint(1) DEFAULT NULL,
+  `covid_nao_realizado` tinyint(1) DEFAULT NULL,
+  `teste_gravidez_sim` tinyint(1) DEFAULT NULL,
+  `teste_gravidez_nao` tinyint(1) DEFAULT NULL,
+  `teste_gravidez_nao_realizado` tinyint(1) DEFAULT NULL,
+  `alguma_queixa_sim` tinyint(1) DEFAULT NULL,
+  `alguma_queixa_nao` tinyint(1) DEFAULT NULL,
+  `alguma_queixa_qual` text DEFAULT NULL,
+  `conduta_queixa` text DEFAULT NULL,
+  `queixa_odontologica_sim` tinyint(1) DEFAULT NULL,
+  `queixa_odontologica_nao` tinyint(1) DEFAULT NULL,
+  `queixa_odontologica_qual` text DEFAULT NULL,
+  `necessita_dentista_imediato_sim` tinyint(1) DEFAULT NULL,
+  `necessita_dentista_imediato_nao` tinyint(1) DEFAULT NULL,
+  `conduta_odontologica` text DEFAULT NULL,
+  `encaminhamentos_finais` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `pacientes_atendimentos`
+--
+
+INSERT INTO `pacientes_atendimentos` (`id`, `responsavel_atendimento`, `data_atendimento`, `transferencia_unidade`, `procedencia`, `nome_completo`, `nome_social`, `data_nascimento`, `idade`, `cpf`, `nacionalidade_brasileiro`, `nacionalidade_naturalizado`, `nacionalidade_estrangeiro`, `pais`, `nome_mae`, `estado_civil_solteiro`, `estado_civil_casado`, `estado_civil_uniao_estavel`, `estado_civil_outro`, `estado_civil_outro_texto`, `raca_branco`, `raca_preto`, `raca_pardo`, `raca_amarelo`, `raca_indigena`, `etnia`, `sexo_feminino`, `sexo_masculino`, `sexo_intersexual`, `sexo_nao_informar`, `identidade_genero_homem`, `identidade_genero_mulher`, `identidade_genero_homem_trans`, `identidade_genero_mulher_trans`, `identidade_genero_nao_binario`, `identidade_genero_nao_informar`, `orientacao_sexual_hetero`, `orientacao_sexual_homo`, `orientacao_sexual_bi`, `orientacao_sexual_outra`, `orientacao_sexual_outra_texto`, `orientacao_sexual_nao_informar`, `escolaridade_fundamental_inc`, `escolaridade_fundamental_comp`, `escolaridade_medio_inc`, `escolaridade_medio_comp`, `escolaridade_superior_inc`, `escolaridade_superior_comp`, `beneficio_nao`, `beneficio_sim`, `qual_beneficio`, `possui_filhos_nao`, `possui_filhos_sim`, `quantos_filhos`, `outros_dependentes_nao`, `outros_dependentes_sim`, `quantos_dependentes`, `idade_social`, `encaminhamento_neeja`, `assist_social`, `deficiencia_nao`, `deficiencia_sim`, `qual_deficiencia`, `deficiencia_nao_sabe`, `alergias_nao`, `alergias_sim`, `quais_alergias`, `alergias_nao_sabe`, `cirurgias_nao`, `cirurgias_sim`, `quais_cirurgias`, `cirurgias_nao_sabe`, `hipertensao`, `diabetes`, `hiv_historico`, `sifilis_historico`, `hpv`, `tuberculose`, `doenca_pele_nao`, `doenca_pele_sim`, `qual_doenca_pele`, `autoimune_nao`, `autoimune_sim`, `outra_autoimune`, `autoimune_nao_sabe`, `obs_autoimune`, `obs_hepatite`, `medicamento_continuo_nao`, `medicamento_continuo_sim`, `quais_medicamentos`, `contato_enchente_nao`, `contato_enchente_sim`, `ano_enchente`, `descrever_exposicao`, `tipo_sanguineo_a_pos`, `tipo_sanguineo_a_neg`, `tipo_sanguineo_b_pos`, `tipo_sanguineo_b_neg`, `tipo_sanguineo_o_pos`, `tipo_sanguineo_o_neg`, `tipo_sanguineo_ab_pos`, `tipo_sanguineo_ab_neg`, `tipo_sanguineo_nao_sabe`, `encaminhamento_sangue`, `gestacao_nao_sabe`, `gestacao_nao`, `gestacao_sim`, `idade_gestacional`, `contraceptivo_nao`, `anticoncepcional_oral`, `diu_implante`, `anticoncepcional_injetavel`, `ligadura_trompas`, `histerectomia`, `preventivo_nao`, `preventivo_sim`, `ano_preventivo`, `ofertar_continuidade_contraceptivo`, `ofertar_consulta_preventivo`, `encaminhar_pre_natal_mulher`, `exame_prostata_nao`, `exame_prostata_sim`, `ano_prostata`, `historico_prostata_nao`, `historico_prostata_sim`, `familiar_prostata`, `vasectomia_nao`, `vasectomia_sim`, `parceira_gestante_nao`, `parceira_gestante_sim`, `participando_pre_natal_nao`, `participando_pre_natal_sim`, `ofertar_vasectomia`, `encaminhar_pre_natal_parceiro`, `caps_nao`, `caps_sim`, `nome_municipio_caps`, `ansiedade_nao`, `ansiedade_sim`, `depressao_nao`, `depressao_sim`, `bipolaridade_nao`, `bipolaridade_sim`, `esquizofrenia_nao`, `esquizofrenia_sim`, `autismo_nao`, `autismo_sim`, `outro_transtorno`, `transtorno_nao_sabe`, `medicamento_controlado_nao`, `medicamento_controlado_sim`, `qual_medicamento_controlado`, `medicamento_controlado_nao_sabe`, `acompanhamento_prisao_nao`, `acompanhamento_prisao_sim`, `motivo_acompanhamento`, `uso_alcool_nao`, `uso_alcool_sim`, `uso_cigarro_nao`, `uso_cigarro_sim`, `uso_maconha_nao`, `uso_maconha_sim`, `uso_crack_nao`, `uso_crack_sim`, `uso_cocaina_nao`, `uso_cocaina_sim`, `uso_anfetaminas_nao`, `uso_anfetaminas_sim`, `uso_drogas_k_nao`, `uso_drogas_k_sim`, `uso_outras_substancias_nao`, `uso_outras_substancias_sim`, `outras_substancias`, `tratamento_cessar_nao`, `tratamento_cessar_sim`, `substancia_tratamento`, `deseja_tratamento_nao`, `deseja_tratamento_sim`, `desejo_substancia`, `ofertar_consulta_psicologia`, `ofertar_consulta_psiquiatria`, `encaminhar_renovacao_receitas`, `ofertar_grupos_apoyo`, `vacina_covid_nao`, `vacina_covid_sim`, `vacina_covid_nao_sabe`, `vacina_influenza_nao`, `vacina_influenza_sim`, `vacina_influenza_nao_sabe`, `vacina_tetano_nao`, `vacina_tetano_sim`, `vacina_tetano_nao_sabe`, `vacina_hepatite_nao`, `vacina_hepatite_sim`, `vacina_hepatite_nao_sabe`, `peso`, `altura`, `imc`, `pa`, `fc`, `sat`, `temp`, `tosse_sim`, `tosse_nao`, `coriza_sim`, `coriza_nao`, `espirros_sim`, `espirros_nao`, `febre_sim`, `febre_nao`, `calafrios_sim`, `calafrios_nao`, `outros_sintomas`, `data_inicio_sintomas`, `apresenta_lesoes_sim`, `apresenta_lesoes_nao`, `apresenta_lesoes_locais`, `apresenta_lesoes_conduta`, `hiv12_lote`, `hiv12_validade`, `hiv12_r`, `hiv12_nr`, `hiv12_nao_realizado`, `hiv22_lote`, `hiv22_validade`, `hiv22_r`, `hiv22_nr`, `hiv22_nao_realizado`, `sifilis_lote`, `sifilis_validade`, `sifilis_r`, `sifilis_nr`, `sifilis_nao_realizado`, `hepatite_b_lote`, `hepatite_b_validade`, `hepatite_b_r`, `hepatite_b_nr`, `hepatite_b_nao_realizado`, `hepatite_c_lote`, `hepatite_c_validade`, `hepatite_c_r`, `hepatite_c_nr`, `hepatite_c_nao_realizado`, `covid_lote`, `covid_validade`, `covid_r`, `covid_nr`, `covid_nao_realizado`, `teste_gravidez_sim`, `teste_gravidez_nao`, `teste_gravidez_nao_realizado`, `alguma_queixa_sim`, `alguma_queixa_nao`, `alguma_queixa_qual`, `conduta_queixa`, `queixa_odontologica_sim`, `queixa_odontologica_nao`, `queixa_odontologica_qual`, `necessita_dentista_imediato_sim`, `necessita_dentista_imediato_nao`, `conduta_odontologica`, `encaminhamentos_finais`) VALUES
+(11, 'tais', '27/06/2025', 1, 'Itaembu São Paulo', 'Douglas Goularte', 'Douglas', '06/01/2004', '21', '05523895016', 1, 0, 0, '', 'Rosecler', 0, 1, 0, 0, '', 0, 0, 1, 0, 0, '', 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, '', 0, 0, 0, 1, 0, 0, 0, 1, 0, '', 1, 0, '', 1, 0, '', '', 0, 0, 1, 0, '', 0, 1, 0, '', 0, 1, 0, '', 0, 0, 0, 0, 0, 0, 0, 1, 0, '', 1, 0, '', 0, '', '', 1, 0, '', 1, 0, '', '', 0, 0, 1, 0, 0, 0, 0, 0, 0, '', 0, 1, 0, '', 1, 0, 0, 0, 0, 0, 1, 0, '', 0, 1, 0, 1, 0, '', 1, 0, '', 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, '', 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, '', 0, 1, 0, '', 0, 1, 0, '', 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, '', 1, 0, '', 1, 0, '', 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, '85', '170', '80', '89', '73', '68', '30', 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, '', '', 0, 1, '', '', '1sd58fs2', '13/08/2026', 0, 1, 0, 'ass5d1d', '13/08/2026', 0, 1, 0, 'sd158d1', '13/08/2026', 0, 1, 0, 'a5s48w2', '13/08/2026', 0, 1, 0, 'as18d64/', '13/08/2026', 0, 1, 0, '51sd48s4', '13/08/2026', 0, 1, 0, 0, 1, 0, 0, 1, '', '', 0, 1, '', 0, 0, '', ''),
+(17, 'Regiane', '14/07/2025', 0, '', 'João Da Silva', 'João', '08/01/2000', '25', '58965413568', 1, 1, 0, '', 'Vania Silva', 0, 0, 1, 0, '', 0, 0, 0, 1, 0, '', 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, '', 0, 1, 0, 0, 0, 0, 0, 1, 0, '', 1, 0, '', 1, 0, '', '', 1, 0, 1, 0, '', 0, 1, 0, '', 0, 1, 0, '', 0, 0, 1, 0, 0, 0, 0, 0, 0, '', 1, 0, '', 0, '', '', 1, 0, '', 1, 0, '', '', 0, 0, 0, 0, 0, 0, 1, 0, 0, '', 0, 1, 0, '', 1, 0, 0, 0, 0, 0, 1, 0, '', 0, 0, 0, 1, 0, '', 1, 0, '', 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, '', 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, '', 0, 1, 0, '', 0, 0, 0, '', 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, '', 1, 0, '', 1, 0, '', 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, '90', '122', '156', '145', '540', '56', '36', 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, '', '', 0, 0, '', '', 'fasda5', '05/09/2026', 0, 1, 0, 'asd26', '05/09/2026', 0, 1, 0, 'asd58', '05/09/2026', 0, 1, 0, 'as5d6', '05/09/2026', 0, 1, 0, 'asg51', '05/09/2026', 0, 1, 0, 'asd16', '05/09/2026', 0, 1, 0, 0, 1, 0, 0, 1, '', '', 0, 1, '', 0, 1, '', 'Fui preso!');
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices de tabela `pacientes_atendimentos`
+--
+ALTER TABLE `pacientes_atendimentos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT para tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `pacientes_atendimentos`
+--
+ALTER TABLE `pacientes_atendimentos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
